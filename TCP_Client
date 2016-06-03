@@ -1,8 +1,23 @@
 
 #! usr/bin/python3
-
 import socket
 import re 
+#Here is the basic script
+
+
+target_host = "www.google.com"
+target_port = 80
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect((target_host, target_prot))
+
+client.send(bytes("GET / HTTP/1.1\r\nHost: google.com\r\n\r\n", encoding="utf-8"))
+response = client.recv(recv_port)
+
+print(response)
+
+
+###this is a work in progress, altering for control
 
 
 #TCP Client 
@@ -14,30 +29,25 @@ import re
 # We will start asking who is our target
 ##target = input("What is your IPv4 target hostname?") 
 ##target_port = input("What port will you be connecting on?") 
-
-
-#Example of input
-target_host = "www.google.com"
-target_port = 80
-recv_port
+##recv_port = ""
 #Creating a socket object 
 #"how our data will be transmitted"
 #AF_INET = We will be using a standard IPv4 address or hostname
 #SOCK_STREAM = We will be using our reliable (TCP) protocol as a client
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
 #Connecting to the client 
-client.connect((target_host, target_prot))
+#client.connect((target_host, target_prot))
 
 
 #Send your data[transmission]
 #Example "Get HTTP version 1.1" 
-#sending string in bytes format to ommit error ive recived 
-send = client.send(bytes("GET / HTTP/1.1\r\nHost: google.com\r\n\r\n"))
+#sending string in bytes format to ommit error ive recived need to test again without encoding 
+#client.send(bytes("GET / HTTP/1.1\r\nHost: google.com\r\n\r\n"))
 
 #Recive a response 
-response = client.recv(recv_port)
+#response = client.recv(recv_port)
 
-print(response)
+#print(response)
